@@ -7,9 +7,15 @@ const app = express()
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
-    origin: "https://ai-powered-job-prep-resume-analyzer.vercel.app", // Aapki exact website link
-    credentials: true
+    origin: "https://ai-powered-job-prep-resume-analyzer.vercel.app",
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With", "Accept"]
 }));
+
+// Preflight requests (OPTIONS) ko handle karne ke liye ye extra line zaroori hai
+app.options("*", cors());
+
 
 
 

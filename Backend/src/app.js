@@ -7,14 +7,17 @@ const app = express()
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
-    origin: "https://ai-powered-job-prep-resume-analyzer.vercel.app",
+    origin: function (origin, callback) {
+        // Kisi bhi incoming origin ko allow karne ke liye (Production test ke liye best hai)
+        callback(null, true);
+    },
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With", "Accept"]
 }));
 
-// Preflight requests (OPTIONS) ko handle karne ke liye ye extra line zaroori hai
 app.options("*", cors());
+
 
 
 

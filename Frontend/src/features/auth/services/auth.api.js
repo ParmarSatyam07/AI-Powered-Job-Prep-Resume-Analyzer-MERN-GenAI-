@@ -2,7 +2,7 @@ import axios from "axios"
 
 
 const api = axios.create({
-    baseURL: "https://onrender.com",
+    baseURL: "https://ai-powered-job-prep-resume-analyzer-mern.onrender.com",
     withCredentials: true
 });
 

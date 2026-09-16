@@ -7,18 +7,9 @@ const app = express()
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
-    origin: function (origin, callback) {
-        // Kisi bhi incoming origin ko allow karne ke liye (Production test ke liye best hai)
-        callback(null, true);
-    },
-    credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With", "Accept"]
+    origin: "https://ai-powered-job-prep-resume-analyzer.vercel.app", // Aapki exact website link
+    credentials: true
 }));
-
-app.options("*", cors());
-
-
 
 
 
